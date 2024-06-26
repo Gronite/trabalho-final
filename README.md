@@ -12,10 +12,10 @@ O projeto é uma SPA feita usando React com persistência de dados em um Web Ser
 
 O projeto é uma aplicação de lista de tarefas e possui 4 entidades, todas com CRUD:
 
-> Categoria
-> Usuário
-> Tarefa
-> Comentário
+* Categoria
+* Usuário
+* Tarefa
+* Comentário
 
 O projeto também foi compilado com Docker, abaixo você pode ler as funcionalidades da aplicação.
 
