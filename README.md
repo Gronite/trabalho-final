@@ -143,6 +143,8 @@ Os comentários no código são as entidades da entidade tarefa, um comentário 
 * **API após mudanças**
 ![API após mudanças](https://i.imgur.com/WotxHu8.png)
 
+> OBS: Você pode ter notado uma categoria a mais (a "trabalho") em categoria dentro da API, já que no front só mostra a "Lazer", isso é por que eu não dei F5 na localhost de Categoria para atualizar, então ela ainda está no estado do print anterior. Mas as outras o refresh foi dado.
+
 * **Após excluir tudo**
 ![Tudo excluido](https://i.imgur.com/Mwf7RDg.png)
 
