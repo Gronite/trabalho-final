@@ -1,70 +1,150 @@
-# Getting Started with Create React App
+# SPA & Web Service usando C# e .NET (BD In-Memory)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Busca
 
-## Available Scripts
+* Sobre o Projeto
+* Funcionalidades
+* Imagens da Aplicação funcionando
 
-In the project directory, you can run:
+## Projeto
+ 
+O projeto é uma SPA feita usando React com persistência de dados em um Web Service In-Memory do .NET feito com C#.
 
-### `npm start`
+O projeto é uma aplicação de lista de tarefas e possui 4 entidades, todas com CRUD:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+> Categoria
+> Usuário
+> Tarefa
+> Comentário
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+O projeto também foi compilado com Docker, abaixo você pode ler as funcionalidades da aplicação.
 
-### `npm test`
+## Funcionalidades
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Categoria
 
-### `npm run build`
+As categorias na aplicação servem como marcação para indicar o "tipo" de uma determinada tarefa, os usuários podem querer separar suas tarefas em, como o nome já diz, categorias, isso permite ao usuário uma melhor organização em suas anotações, os usuários podem adicionar, editar e excluir suas categorias.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Usuário
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+O usuário é a entidade que determina quem criou determinada tarefa e quem adicionou certo comentário (eu abstraí de uma certa maneira essa entidade na aplicação, pois, não queria aumentar a complexidade trazendo logins para a SPA, até por que o primeiro trabalho dessa SPA foi feito com base apenas em uma SPA com react, com objetivo de melhorar as habilidades front-end, e o trabalho final é uma extensão disso, então preferi não modificar essa parte) A entidade usuário se comporta de maneira semelhante à de categoria no código, mas enquanto a de categoria referencia o tipo de tarefa, um usuário referencia a persona que adiciona a tarefa/comentário. Um usuário pode ser adicionado, editado e excluído.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Tarefa
 
-### `npm run eject`
+Como entidade mais importante todas as outras entidades se relacionam com as tarefas. Para a criação de uma tarefa, você precisa de uma descrição pra sua tarefa, uma categoria e seu usuário (já adicionados anteriormente), com uma tarefa existente você também pode adicionar comentários nessa determinada tarefa, falaremos disso no tópico da próxima e última entidade, você também pode editar o conteúdo da sua tarefa, como também pode excluir a sua tarefa.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Comentários
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Os comentários no código são as entidades da entidade tarefa, um comentário pode ser adicionado a uma tarefa existente ao utilizar um nome de usuário existente, você também pode editar e excluir o seu comentário, cada comentário adicionado em uma tarefa, é exclusivo da tarefa em que foi adicionado.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+> OBS: Ao excluir categorias e usuários, os campos onde os respectivos nomes de categoria/usuário estavam, são trocados para indicar que a exclusão da categoria/usuário que estava ali foi efetuada e não existe mais.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Imagens de funcionamento da aplicação
 
-## Learn More
+### Tela inicial
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* **Tela inicial da aplicação**
+![Tela inicial](https://i.imgur.com/6D96sDl.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Docker
 
-### Code Splitting
+* **Criação das imagens e containers Docker**
+![img e container frontend](https://i.imgur.com/OZad7iy.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![img e container backend](https://i.imgur.com/CKmhvKj.png)
 
-### Analyzing the Bundle Size
+* **Docker Desktop**
+![Containers rodando no Docker Desktop](https://i.imgur.com/r0e2gWY.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Adições
 
-### Making a Progressive Web App
+* **Adicionando Categoria**
+![Adicionando categoria](https://i.imgur.com/joIep2R.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+* **Categoria adicionada**
+![Categoria adicionada](https://i.imgur.com/pyXFkU1.png)
 
-### Advanced Configuration
+* **Adicionando Usuário**
+![Adicionando Usuário](https://i.imgur.com/NpRI3QC.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+* **Usuário adicionado**
+![Usuário adicionado](https://i.imgur.com/W0tEm9f.png)
 
-### Deployment
+* **Adicionando Tarefa**
+![Adicionando tarefa](https://i.imgur.com/TEMKy7E.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+* **Tarefa Adicionada**
+![Tarefa adicionada](https://i.imgur.com/qYHTtHd.png)
 
-### `npm run build` fails to minify
+* **Adicionando Comentário**
+![Adicionando comentário](https://i.imgur.com/PTnPiJQ.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* **Comentário Adicionado**
+![Comentário Adicionado](https://i.imgur.com/oCwstaS.png)
+
+* **Adicionando uma segunda leva de entidades**
+![Mais entidades](https://i.imgur.com/O1iKOxN.png)
+
+* **Visualizando o comportamento da API após as adições**
+![API](https://i.imgur.com/JyYt71P.png)
+
+### Edições
+
+* **Editando Categoria**
+![Editando categoria](https://i.imgur.com/HLsDlhZ.png)
+
+* **Categoria editada**
+![Categoria editada](https://i.imgur.com/4CnfTm6.png)
+
+* **Editando Usuário**
+![Editando Usuário](https://i.imgur.com/yy5OcwK.png)
+
+* **Usuário Editado**
+![Usuário Editado](https://i.imgur.com/2cOLppz.png)
+
+* **Editando Tarefa**
+![Editando Tarefa](https://i.imgur.com/JzM1vv4.png)
+
+* **Tarefa Editada**
+![Tarefa Editada](https://i.imgur.com/AwYIyi0.png)
+
+* **Editando Comentário**
+![Editando comentário](https://i.imgur.com/r1ptPIm.png)
+
+* **Comentário Editado**
+![Comentário editado](https://i.imgur.com/SeM6HlL.png)
+
+### Exclusões
+
+* **Excluindo Categoria**
+![Excluindo categoria](https://i.imgur.com/GrcMrAO.png)
+
+* **Categoria Excluída**
+![Categoria excluida](https://i.imgur.com/R0jdIIP.png)
+
+* **Excluindo Usuário**
+![Excluindo Usuário](https://i.imgur.com/UMz5t0S.png)
+
+* **Usuário Excluído**
+![Usuário excluido](https://i.imgur.com/NzkSBKc.png)
+
+* **Excluindo Comentário**
+![Excluindo comentário](https://i.imgur.com/AdSdJgj.png)
+
+* **Comentário Excluído**
+![Comentário excluído](https://i.imgur.com/63SOWp7.png)
+
+* **Excluindo tarefa**
+![Excluindo tarefa](https://i.imgur.com/SVzxvEj.png)
+
+* **Tarefa excluída**
+![Tarefa excluída](https://i.imgur.com/z4Pn7e5.png)
+
+* **API após mudanças**
+![API após mudanças](https://i.imgur.com/WotxHu8.png)
+
+* **Após excluir tudo**
+![Tudo excluido](https://i.imgur.com/Mwf7RDg.png)
+
+* **API vazia**
+![API vazia](https://i.imgur.com/CmYLvSx.png)
