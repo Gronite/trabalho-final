@@ -3,8 +3,8 @@
 ## Sumário
 
 *  [Sobre o projeto](#Projeto)
-* Funcionalidades
-* Imagens da Aplicação funcionando
+*  [Funcionalidades](#Funcionalidades)
+*  [Imagens da aplicação em funcionamento](#Imagens de funcionamento da aplicação)
 
 ## Projeto
  
