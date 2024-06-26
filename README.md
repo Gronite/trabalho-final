@@ -4,7 +4,7 @@
 
 *  [Sobre o projeto](#Projeto)
 *  [Funcionalidades](#Funcionalidades)
-*  [Imagens da aplicação em funcionamento](#Imagens de funcionamento da aplicação)
+*  [Imagens da aplicação em funcionamento](#Imagens-de-funcionamento-da-aplicação)
 
 ## Projeto
  
