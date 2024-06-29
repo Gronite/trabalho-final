@@ -1,7 +1,6 @@
 using Backend.Application.Interfaces;
 using Backend.Domain.Entities;
 using Backend.Domain.Interfaces;
-using System.Collections.Generic;
 
 namespace Backend.Application.Services
 {
