@@ -25,7 +25,6 @@ const Comentarios = ({
         (usuario) => usuario.nome === usuarioComentario,
       ).id;
 
-      try {
         const tarefaId = tarefas[tarefaIndex].id;
         const response = await axios.post(
           'http://localhost:5144/api/Comentarios',
@@ -41,9 +40,6 @@ const Comentarios = ({
         setComentariosVisiveis(true);
         setNovoComentario('');
         setUsuarioComentario('');
-      } catch (error) {
-        console.error('Erro ao adicionar comentário:', error);
-      }
     } else {
       alert('Usuário não encontrado ou comentário vazio.');
     }
@@ -54,7 +50,6 @@ const Comentarios = ({
   };
 
   const salvarEdicaoComentario = async (comentarioId) => {
-    try {
       const comentarioEditado = {
         ...comentarios[edicaoComentario.index],
         texto: edicaoComentario.texto,
@@ -70,13 +65,9 @@ const Comentarios = ({
       );
       setComentarios(novosComentarios);
       setEdicaoComentario({ index: null, texto: '' });
-    } catch (error) {
-      console.error('Erro ao editar comentário:', error);
-    }
   };
 
   const excluirNovoComentario = async (index, comentarioId) => {
-    try {
       await axios.delete(
         `http://localhost:5144/api/Comentarios/${comentarioId}`,
       );
@@ -86,9 +77,6 @@ const Comentarios = ({
       setComentarios(novosComentarios);
 
       setComentariosVisiveis(true);
-    } catch (error) {
-      console.error('Erro ao excluir comentário:', error);
-    }
   };
 
   return (
