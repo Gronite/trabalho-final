@@ -17,12 +17,8 @@ const Usuario = ({
   });
 
   const carregarUsuarios = useCallback(async () => {
-    try {
       const response = await axios.get('http://localhost:5144/api/Usuarios');
       setUsuarios(response.data);
-    } catch (error) {
-      console.error('Erro ao carregar usuários:', error);
-    }
   }, [setUsuarios]);
 
   useEffect(() => {
@@ -35,7 +31,6 @@ const Usuario = ({
       novoUsuario.trim().length <= 15 &&
       !usuarios.map((u) => u.nome).includes(novoUsuario)
     ) {
-      try {
         const response = await axios.post(
           'http://localhost:5144/api/Usuarios',
           {
@@ -44,9 +39,6 @@ const Usuario = ({
         );
         setUsuarios([response.data, ...usuarios]);
         setNovoUsuario('');
-      } catch (error) {
-        console.error('Erro ao adicionar usuário:', error);
-      }
     } else {
       alert(
         'Você só pode adicionar um usuário com no máximo 15 caracteres e não pode existir um igual',
@@ -56,7 +48,6 @@ const Usuario = ({
 
   const excluirUsuario = async (index) => {
     const usuarioExcluido = usuarios[index];
-    try {
       await axios.delete(
         `http://localhost:5144/api/Usuarios/${usuarioExcluido.id}`,
       );
@@ -78,9 +69,6 @@ const Usuario = ({
       });
 
       setTarefas(novaListaTarefas);
-    } catch (error) {
-      console.error('Erro ao excluir usuário:', error);
-    }
   };
 
   const iniciarEdicao = (index, usuario) => {
@@ -91,7 +79,6 @@ const Usuario = ({
     const usuarioAntigo = usuarios[editando.index];
     const usuarioNovo = editando.valor;
 
-    try {
       await axios.put(
         `http://localhost:5144/api/Usuarios/${usuarioAntigo.id}`,
         { ...usuarioAntigo, nome: usuarioNovo },
@@ -116,9 +103,6 @@ const Usuario = ({
       });
 
       setTarefas(novaListaTarefas);
-    } catch (error) {
-      console.error('Erro ao editar usuário:', error);
-    }
 
     setEditando({ ativa: false, index: null, valor: '' });
   };
