@@ -18,7 +18,6 @@ const Tarefa = ({ categorias, usuarios }) => {
 
   useEffect(() => {
     const carregarTarefas = async () => {
-      try {
         const response = await axios.get('http://localhost:5144/api/Tarefas');
         const tarefasData = response.data.reverse();
         setTarefas(tarefasData);
@@ -28,12 +27,6 @@ const Tarefa = ({ categorias, usuarios }) => {
           (tarefa) => tarefa.comentarios || [],
         );
         setComentariosTarefa(comentarios);
-      } catch (error) {
-        console.error(
-          'Erro ao carregar tarefas:',
-          error.response?.data || error.message,
-        );
-      }
     };
     carregarTarefas();
   }, []);
@@ -48,7 +41,6 @@ const Tarefa = ({ categorias, usuarios }) => {
         (usuario) => usuario.nome === novoUsuario && !usuario.excluido,
       )
     ) {
-      try {
         const categoriaSelecionada = categorias.find(
           (categoria) => categoria.nome === novaCategoria,
         );
@@ -73,9 +65,6 @@ const Tarefa = ({ categorias, usuarios }) => {
         setNovoUsuario('');
         setComentariosVisiveis([false, ...comentariosVisiveis]);
         setComentariosTarefa([[], ...comentariosTarefa]);
-      } catch (error) {
-        console.error('Erro ao adicionar tarefa:', error);
-      }
     } else {
       alert(
         'Categoria ou usuário inexistente ou marcado como excluído [Verifique a caixa-alta]',
@@ -91,7 +80,6 @@ const Tarefa = ({ categorias, usuarios }) => {
     const tarefaAntiga = tarefas[edicaoAtiva.index];
     const descricaoNova = edicaoAtiva.valor;
 
-    try {
       await axios.put(`http://localhost:5144/api/Tarefas/${tarefaAntiga.id}`, {
         ...tarefaAntiga,
         descricao: descricaoNova,
@@ -105,9 +93,6 @@ const Tarefa = ({ categorias, usuarios }) => {
       setTarefas(novasTarefas);
 
       cancelarEdicaoTarefa();
-    } catch (error) {
-      console.error('Erro ao editar tarefa:', error);
-    }
   };
 
   const cancelarEdicaoTarefa = () => {
@@ -117,7 +102,6 @@ const Tarefa = ({ categorias, usuarios }) => {
   const excluirTarefa = async (index) => {
     const tarefaId = tarefas[index].id;
 
-    try {
       await axios.delete(`http://localhost:5144/api/Tarefas/${tarefaId}`);
       const novasTarefas = tarefas.filter((_, i) => i !== index);
       setTarefas(novasTarefas);
@@ -129,9 +113,6 @@ const Tarefa = ({ categorias, usuarios }) => {
         (_, i) => i !== index,
       );
       setComentariosVisiveis(novosComentariosVisiveis);
-    } catch (error) {
-      console.error('Erro ao excluir tarefa:', error);
-    }
   };
 
   return (
