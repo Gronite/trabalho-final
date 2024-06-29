@@ -1,7 +1,6 @@
 using Backend.Application.Interfaces;
 using Backend.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 
 namespace Backend.API.Controllers
 {
