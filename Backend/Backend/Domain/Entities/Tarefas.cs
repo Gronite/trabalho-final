@@ -1,7 +1,3 @@
-#nullable enable
-
-using System.Collections.Generic;
-
 namespace Backend.Domain.Entities
 
 {
