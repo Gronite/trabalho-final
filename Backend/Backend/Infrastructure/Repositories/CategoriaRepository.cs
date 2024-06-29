@@ -1,8 +1,6 @@
 using Backend.Domain.Entities;
 using Backend.Domain.Interfaces;
 using Backend.Infrastructure.Data;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Backend.Infrastructure.Repositories
 {
