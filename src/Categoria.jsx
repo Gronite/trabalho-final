@@ -22,16 +22,12 @@ const Categoria = ({
       novaCategoria.trim().length <= 40 &&
       !categorias.map((cat) => cat.nome).includes(novaCategoria)
     ) {
-      try {
         const response = await axios.post(
           'http://localhost:5144/api/Categorias',
           { nome: novaCategoria.trim() },
         );
         setCategorias([response.data, ...categorias]);
         setNovaCategoria('');
-      } catch (error) {
-        console.error('Erro ao adicionar categoria:', error);
-      }
     } else {
       alert(
         'Você só pode adicionar uma categoria com no máximo 40 caracteres e não pode existir uma igual',
@@ -41,7 +37,6 @@ const Categoria = ({
 
   const excluirCategoria = async (index) => {
     const categoriaExcluida = categorias[index];
-    try {
       await axios.delete(
         `http://localhost:5144/api/Categorias/${categoriaExcluida.id}`,
       );
@@ -54,9 +49,6 @@ const Categoria = ({
           : tarefa,
       );
       setTarefas(novaListaTarefas);
-    } catch (error) {
-      console.error('Erro ao excluir categoria:', error);
-    }
   };
 
   const iniciarEdicao = (index, categoria) => {
@@ -66,7 +58,6 @@ const Categoria = ({
   const salvarEdicao = async () => {
     const categoriaAntiga = categorias[editando.index];
     const categoriaNova = editando.valor;
-    try {
       await axios.put(
         `http://localhost:5144/api/Categorias/${categoriaAntiga.id}`,
         { ...categoriaAntiga, nome: categoriaNova },
@@ -86,9 +77,6 @@ const Categoria = ({
       setTarefas(novaListaTarefas);
 
       setEditando({ ativa: false, index: null, valor: '' });
-    } catch (error) {
-      console.error('Erro ao salvar edição:', error);
-    }
   };
 
   const cancelarEdicao = () => {
