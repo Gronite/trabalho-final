@@ -15,7 +15,6 @@ function App() {
   const [comentariosVisiveis, setComentariosVisiveis] = useState([]);
 
   const carregarDadosIniciais = async () => {
-    try {
       const responseCategorias = await axios.get(
         'http://localhost:5144/api/Categorias',
       );
@@ -33,9 +32,6 @@ function App() {
         'http://localhost:5144/api/Usuarios',
       );
       setUsuarios(responseUsuarios.data);
-    } catch (error) {
-      console.error('Erro ao carregar dados iniciais:', error);
-    }
   };
 
   useEffect(() => {
