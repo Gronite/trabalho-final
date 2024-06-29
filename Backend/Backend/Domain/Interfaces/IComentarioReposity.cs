@@ -1,5 +1,4 @@
 using Backend.Domain.Entities;
-using System.Collections.Generic;
 
 namespace Backend.Domain.Interfaces
 {
